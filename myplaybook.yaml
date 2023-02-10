@@ -1,12 +1,12 @@
 ---
  - name: play for conditions on facts
    hosts: accenture
+   remote_user: userA
    tasks:
-           - name: Install mysql server
-             dnf:
-                name: mysql
-                state: present
-             become: yes
-             user: userA
-             when: ansible_memfree_mb >= 250
+     - name: Install mysql server
+       dnf:
+         name: mysql
+         state: present
+       become: yes
+       when: ansible_memfree_mb >= 250
 
